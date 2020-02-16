@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A11894F123F9A7E100143CF0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A11894F023F9A7E100143CF0 /* main.cpp */; };
+		A11894F923F9AD8A00143CF0 /* schedule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A11894F723F9AD8A00143CF0 /* schedule.cpp */; };
+		A11894FC23F9BCE200143CF0 /* functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A11894FA23F9BCE200143CF0 /* functions.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		A11894ED23F9A7E100143CF0 /* Schedule Generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Schedule Generator"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11894F023F9A7E100143CF0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A11894F723F9AD8A00143CF0 /* schedule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = schedule.cpp; sourceTree = "<group>"; };
+		A11894F823F9AD8A00143CF0 /* schedule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = schedule.hpp; sourceTree = "<group>"; };
+		A11894FA23F9BCE200143CF0 /* functions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = functions.cpp; sourceTree = "<group>"; };
+		A11894FB23F9BCE200143CF0 /* functions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = functions.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				A11894F023F9A7E100143CF0 /* main.cpp */,
+				A11894F723F9AD8A00143CF0 /* schedule.cpp */,
+				A11894F823F9AD8A00143CF0 /* schedule.hpp */,
+				A11894FA23F9BCE200143CF0 /* functions.cpp */,
+				A11894FB23F9BCE200143CF0 /* functions.hpp */,
 			);
 			path = "Schedule Generator";
 			sourceTree = "<group>";
@@ -119,6 +129,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11894F923F9AD8A00143CF0 /* schedule.cpp in Sources */,
+				A11894FC23F9BCE200143CF0 /* functions.cpp in Sources */,
 				A11894F123F9A7E100143CF0 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
