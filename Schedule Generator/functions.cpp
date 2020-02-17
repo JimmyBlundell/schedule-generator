@@ -50,45 +50,13 @@ void initializeCourseTimesVec(vector<string> &vec)
     vec.push_back("4P");
 }
 
-
-bool isValidInstructor(string instructor, string course)
+void initializeRoomsVec(vector<string> &vec)
 {
-    if (instructor == "Staff")
-    {
-        return true;
-    }
-    
-    if ((instructor == "Hare") && (course == "CS 101" || course == "CS 201" || course == "CS 291" ||
-                                   course == "CS 303" || course =="CS 449" || course == "CS 461"))
-    {
-        return true;
-    }
-    
-    if ((instructor == "Bingham") && (course == "CS 101" || course == "CS 201"|| course == "CS 191" ||
-                                      course == "CS 291" || course == "CS 449"))
-    {
-        return true;
-    }
-    
-    if ((instructor == "Mitchell") && (course == "CS 191" || course == "CS 291" || course == "CS 303" ||
-                                       course == "CS 341"))
-    {
-        return true;
-    }
-    
-    if ((instructor == "Kuhail") && (course == "CS 303" || course == "CS 341"))
-    {
-        return true;
-    }
-    
-    if ((instructor == "Rao") && (course == "CS 291" || course == "CS 303" || course == "CS 341" ||
-                                  course == "CS 461"))
-    {
-        return true;
-    }
-    
-    else
-    {
-        return false;
-    }
+    vec.push_back("Haag 201");
+    vec.push_back("Haag 301");
+    vec.push_back("Royall 204");
+    vec.push_back("Katz 209");
+    vec.push_back("Flarsheim 260");
+    vec.push_back("Flarsheim 310");
+    vec.push_back("Bloch 0009");
 }

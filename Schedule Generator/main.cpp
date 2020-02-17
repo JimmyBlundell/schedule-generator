@@ -15,6 +15,7 @@
 #include <iostream>
 #include "schedule.hpp"
 #include "functions.hpp"
+#include "fitnessHelperFunctions.hpp"
 
 using namespace std;
 
