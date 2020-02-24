@@ -18,7 +18,7 @@
 using namespace std;
 
 
-class Schedule
+class Course
 {
 private:
     string name;
@@ -27,11 +27,10 @@ private:
     string room;
     
     int expectedEnrollment;
-    int fitness;
     
     
 public:
-    Schedule(string name, int expectedEnrollment);
+    Course(string name, int expectedEnrollment);
     
     void setName(string name);
     void setTime(string time);
@@ -46,6 +45,9 @@ public:
     string getRoom();
     
     int getExpectedEnrollment();
-    int getFitness();
 };
+
+void initializeScheduleVec(vector<Course> &schedule, vector<string> &courseTimes, vector<string> &instructorVec, vector<string> &roomsVec);
+
+void printSchedule(vector<Course> &vec);
 

@@ -14,6 +14,7 @@
 #include <algorithm>
 
 #include "functions.hpp"
+#include "schedule.hpp"
 
 using namespace std;
 
@@ -60,3 +61,4 @@ void initializeRoomsVec(vector<string> &vec)
     vec.push_back("Flarsheim 310");
     vec.push_back("Bloch 0009");
 }
+
