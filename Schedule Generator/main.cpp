@@ -25,7 +25,9 @@ int main()
 {
     //Global variables to keep track of number of changes/attemps and fitness
     int successfulChanges = 0;
-    int numberIterationsWithoutChange = 0;
+    int iterationsWithoutChange = 0;
+    int iterations = 0;
+    float t = 0.99;
     int fitness = 0;
     
     map<string, int> roomCapacityMap;
@@ -48,10 +50,165 @@ int main()
     //For test purposes
     printSchedule(schedule);
     
-    fitness += getFitness(schedule, roomCapacityMap, courseTimes);
+    fitness = getFitness(schedule, roomCapacityMap, courseTimes);
     cout << fitness << endl;
     
- 
+    srand(time(NULL));
+    
+    // Loop, making random changes and testing new fitness
+    while (iterationsWithoutChange <= 4000)
+    {
+        while (successfulChanges <= 400 || iterations <= 4000)
+        {
+            cout << "Fitness: " << fitness << endl;
+            cout << successfulChanges << endl;
+            cout << iterations << endl;
+            if (successfulChanges == 400 || iterations == 4000)
+            {
+                successfulChanges = 0;
+                iterations = 0;
+                t = t * 0.5;
+                cout << "T: " << t << endl;
+            }
+            
+            int changeCourse = (rand() % schedule.size());
+            
+            int x = (rand() % 3) + 1;
+            switch (x) {
+                case 1:
+                {
+                    //instructor change
+                    string temp = instructorVec[(rand() % instructorVec.size())];
+                    string old = temp;
+                    schedule[changeCourse].setInstructor(temp);
+                    int oldFitness = fitness;
+                    fitness = getFitness(schedule, roomCapacityMap, courseTimes);
+                    if (fitness > oldFitness)
+                    {
+                        successfulChanges += 1;
+                        iterationsWithoutChange = 0;
+                        break;
+                    }
+                    else if (fitness < oldFitness)
+                    {
+                        //anneal
+                        float p = ((double) rand() / (RAND_MAX));
+                        if (p < exp(-(oldFitness - fitness)/t))
+                        {
+                            successfulChanges += 1;
+                            iterationsWithoutChange = 0;
+                            break;
+                        }
+                        else
+                        {
+                            iterationsWithoutChange++;
+                            cout << "without change: " << iterationsWithoutChange << endl;
+                            schedule[changeCourse].setInstructor(old);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        schedule[changeCourse].setInstructor(old);
+                        iterationsWithoutChange++;
+                        cout << "without change: " << iterationsWithoutChange << endl;
+                        break;
+                    }
+                }
+                    
+                case 2:
+                {
+                    //room change
+                    string temp = roomsVec[(rand() % roomsVec.size())];
+                    string old = temp;
+                    schedule[changeCourse].setRoom(temp);
+                    int oldFitness = fitness;
+                    fitness = getFitness(schedule, roomCapacityMap, courseTimes);
+                    if (fitness > oldFitness)
+                    {
+                        successfulChanges += 1;
+                        iterationsWithoutChange = 0;
+                        break;
+                    }
+                   else if (fitness < oldFitness)
+                    {
+                        //anneal
+                        float p = ((double) rand() / (RAND_MAX));
+                        if (p < exp(-(oldFitness - fitness)/t))
+                        {
+                            successfulChanges += 1;
+                            iterationsWithoutChange = 0;
+                            break;
+                        }
+                        else
+                        {
+                            iterationsWithoutChange++;
+                            cout << "without change: " << iterationsWithoutChange << endl;
+                            schedule[changeCourse].setRoom(old);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        schedule[changeCourse].setRoom(temp);
+                        iterationsWithoutChange++;
+                        cout << "without change: " << iterationsWithoutChange << endl;
+                        break;
+                    }
+                }
+                    
+                case 3:
+                {
+                    //time change
+                    string temp = courseTimes[(rand() % courseTimes.size())];
+                    string old = temp;
+                    schedule[changeCourse].setTime(temp);
+                    int oldFitness = fitness;
+                    fitness = getFitness(schedule, roomCapacityMap, courseTimes);
+                    if (fitness > oldFitness)
+                    {
+                        successfulChanges += 1;
+                        iterationsWithoutChange = 0;
+                        break;
+                    }
+                    else if (fitness < oldFitness)
+                    {
+                        //anneal
+                        float p = ((double) rand() / (RAND_MAX));
+                        if (p < exp(-(oldFitness - fitness)/t))
+                        {
+                            successfulChanges += 1;
+                            iterationsWithoutChange = 0;
+                            break;
+                        }
+                        else
+                        {
+                            iterationsWithoutChange++;
+                            cout << "without change: " << iterationsWithoutChange << endl;
+                            schedule[changeCourse].setTime(old);
+                            break;
+                        }
+                    }
+                    
+                    else
+                    {
+                        iterationsWithoutChange++;
+                        cout << "without change: " << iterationsWithoutChange << endl;
+                        schedule[changeCourse].setTime(old);
+                        break;
+                    }
+                }
+                default:
+                {
+                    break;
+                }
+            }
+            iterations++;
+        }
+    }
+    
+    printSchedule(schedule);
+    cout << fitness << endl;
     
     return 0;
 }

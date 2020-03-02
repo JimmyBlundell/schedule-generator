@@ -540,7 +540,6 @@ int getFitness(vector<Course> &vec, map<string, int> &roomCapacityMap, vector<st
     }
     
     
-    
     //Check 201a to 291b
     if (vec[2].getTime() == vec[7].getTime())
     {
@@ -625,7 +624,6 @@ int getFitness(vector<Course> &vec, map<string, int> &roomCapacityMap, vector<st
                             fitness -= 3;
                         }
                     }
-                    
                 }
                 break;
             }
@@ -675,9 +673,7 @@ int getFitness(vector<Course> &vec, map<string, int> &roomCapacityMap, vector<st
         }
     }
     
-    
-    
-    
-    
     return fitness;
 }
+
+
