@@ -23,9 +23,10 @@ using namespace std;
 
 int main()
 {
-    //Global variables to keep track of number of changes and number of attempts. Determines when program stops. May not need these.
+    //Global variables to keep track of number of changes/attemps and fitness
     int successfulChanges = 0;
-    int numberAttempts = 0;
+    int numberIterationsWithoutChange = 0;
+    int fitness = 0;
     
     map<string, int> roomCapacityMap;
     initializeRoomCapacityMap(roomCapacityMap);
@@ -42,13 +43,15 @@ int main()
     vector<Course> schedule;
     initializeScheduleVec(schedule, courseTimes, instructorVec, roomsVec);
     
+    
+    
     //For test purposes
     printSchedule(schedule);
     
+    fitness += getFitness(schedule, roomCapacityMap, courseTimes);
+    cout << fitness << endl;
+    
  
-    
-    
-    //TODO: Big TODO for next time: we have tons of loops to check for each iteration to assess fitness. Consider making maps of instructors, classes, rooms, etc., of pair<string, bool>. When instructor is assigned, room is assigned, time slot is taken, or whatever, change bool available to false. Ask if this will make checks easier / code more readable.
     
     return 0;
 }

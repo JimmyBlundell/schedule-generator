@@ -10,6 +10,8 @@
 #define schedule_hpp
 
 #include <stdio.h>
+#include <map>
+#include "fitnessHelperFunctions.hpp"
 
 #endif /* schedule_hpp */
 
@@ -50,4 +52,6 @@ public:
 void initializeScheduleVec(vector<Course> &schedule, vector<string> &courseTimes, vector<string> &instructorVec, vector<string> &roomsVec);
 
 void printSchedule(vector<Course> &vec);
+
+int getFitness(vector<Course> &vec, map<string, int> &roomCapacityMap, vector<string> &courseTimes);
 

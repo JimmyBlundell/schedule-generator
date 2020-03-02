@@ -15,3 +15,4 @@ using namespace std;
 #endif /* fitnessHelperFunctions_hpp */
 
 bool isValidInstructor(string instructor, string course);
+
